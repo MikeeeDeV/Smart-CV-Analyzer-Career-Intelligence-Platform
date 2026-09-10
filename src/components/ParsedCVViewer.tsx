@@ -78,7 +78,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Personal Info Header Card */}
       {(activeSection === 'all' || activeSection === 'experience') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3 shadow-lg shadow-black/30">
+        <div className="ui-card p-5 sm:p-6 space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div>
               <h4 className="text-lg font-bold text-white tracking-tight">{cvData.personalInfo.name}</h4>
@@ -91,7 +91,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
             </div>
           </div>
           {cvData.personalInfo.summary && (
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-[#0A0C10] p-3.5 rounded-xl border border-slate-800">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic ui-subcard p-3.5">
               "{cvData.personalInfo.summary}"
             </p>
           )}
@@ -100,7 +100,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Skills Section */}
       {(activeSection === 'all' || activeSection === 'skills') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/30">
+        <div className="ui-card p-5 sm:p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="text-sm font-bold text-white flex items-center gap-2">
               <Code2 className="w-4 h-4 text-blue-400" />
@@ -117,7 +117,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Technical */}
-            <div className="space-y-2 bg-[#0A0C10] p-3.5 rounded-xl border border-slate-800">
+            <div className="space-y-2 ui-subcard p-3.5">
               <span className="text-xs font-bold text-blue-400 block uppercase tracking-wider">
                 {isAr ? 'المهارات التقنية الأساسية (Languages & Core)' : 'Core Technical Languages'}
               </span>
@@ -125,7 +125,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
                 {cvData.skills.technical.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-blue-600/10 text-blue-300 border border-blue-500/20 group"
+                    className="ui-badge-blue group"
                   >
                     <span>{skill}</span>
                     <button
@@ -140,7 +140,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
             </div>
 
             {/* Frameworks */}
-            <div className="space-y-2 bg-[#0A0C10] p-3.5 rounded-xl border border-slate-800">
+            <div className="space-y-2 ui-subcard p-3.5">
               <span className="text-xs font-bold text-emerald-400 block uppercase tracking-wider">
                 {isAr ? 'أطر العمل والمكتبات (Frameworks & Libs)' : 'Frameworks & Libraries'}
               </span>
@@ -148,7 +148,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
                 {cvData.skills.frameworks.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20"
+                    className="ui-badge-emerald group"
                   >
                     <span>{skill}</span>
                     <button
@@ -163,7 +163,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
             </div>
 
             {/* Tools */}
-            <div className="space-y-2 bg-[#0A0C10] p-3.5 rounded-xl border border-slate-800">
+            <div className="space-y-2 ui-subcard p-3.5">
               <span className="text-xs font-bold text-orange-400 block uppercase tracking-wider">
                 {isAr ? 'الأدوات والمنصات (Tools & Platforms)' : 'Tools & Platforms'}
               </span>
@@ -171,7 +171,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
                 {cvData.skills.tools.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-orange-500/10 text-orange-300 border border-orange-500/20"
+                    className="ui-badge-amber group"
                   >
                     <span>{skill}</span>
                     <button
@@ -186,7 +186,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
             </div>
 
             {/* Soft Skills */}
-            <div className="space-y-2 bg-[#0A0C10] p-3.5 rounded-xl border border-slate-800">
+            <div className="space-y-2 ui-subcard p-3.5">
               <span className="text-xs font-bold text-purple-400 block uppercase tracking-wider">
                 {isAr ? 'المهارات الشخصية (Soft Skills)' : 'Soft Skills & Leadership'}
               </span>
@@ -194,7 +194,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
                 {cvData.skills.softSkills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20"
+                    className="ui-badge-slate group"
                   >
                     <span>{skill}</span>
                     <button
@@ -242,7 +242,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Experience Section */}
       {(activeSection === 'all' || activeSection === 'experience') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/30">
+        <div className="ui-card p-5 sm:p-6 space-y-4">
           <h4 className="text-sm font-bold text-white flex items-center gap-2">
             <Briefcase className="w-4 h-4 text-blue-400" />
             <span>{isAr ? 'الخبرات المهنية' : 'Work Experience'}</span>
@@ -250,13 +250,13 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
           <div className="space-y-4">
             {cvData.experience.map((exp) => (
-              <div key={exp.id} className="bg-[#0A0C10] p-4 rounded-xl border border-slate-800 space-y-3">
+              <div key={exp.id} className="ui-subcard p-4 space-y-3">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <div>
                     <h5 className="text-sm font-bold text-white">{exp.role}</h5>
                     <span className="text-xs text-blue-400 font-medium">{exp.company}</span>
                   </div>
-                  <span className="text-xs text-slate-400 font-mono bg-[#0F1117] px-2.5 py-0.5 rounded-md border border-slate-800 self-start sm:self-auto">
+                  <span className="ui-badge-slate text-xs font-mono self-start sm:self-auto">
                     {exp.period}
                   </span>
                 </div>
@@ -276,7 +276,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
                       {onOpenImprover && (
                         <button
                           onClick={() => onOpenImprover(bullet)}
-                          className="opacity-0 group-hover:opacity-100 flex items-center gap-1 text-[11px] font-medium text-blue-400 hover:text-blue-300 px-2 py-0.5 rounded bg-blue-600/10 border border-blue-500/20 transition-all shrink-0"
+                          className="opacity-0 group-hover:opacity-100 flex items-center gap-1 text-xs font-medium text-blue-400 hover:text-blue-300 px-2 py-0.5 rounded-md bg-blue-600/10 border border-blue-500/20 transition-all shrink-0"
                           title={isAr ? 'تحسين هذه الجملة بالذكاء الاصطناعي' : 'Enhance with AI'}
                         >
                           <Sparkles className="w-3 h-3" />
@@ -294,7 +294,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Projects Section */}
       {(activeSection === 'all' || activeSection === 'projects') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/30">
+        <div className="ui-card p-5 sm:p-6 space-y-4">
           <h4 className="text-sm font-bold text-white flex items-center gap-2">
             <FolderGit2 className="w-4 h-4 text-emerald-400" />
             <span>{isAr ? 'المشاريع التطبيقية' : 'Featured Projects'}</span>
@@ -302,12 +302,12 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {cvData.projects.map((proj) => (
-              <div key={proj.id} className="bg-[#0A0C10] p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div key={proj.id} className="ui-subcard p-4 space-y-3 flex flex-col justify-between">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <h5 className="text-sm font-bold text-white">{proj.name}</h5>
                     {proj.critique?.metricsScore && (
-                      <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                      <span className="ui-badge-emerald font-mono">
                         {proj.critique.metricsScore}% {isAr ? 'جودة الوصف' : 'Impact'}
                       </span>
                     )}
@@ -322,7 +322,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
                     {proj.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 rounded bg-[#0F1117] text-slate-400 border border-slate-800 text-[10px] font-mono"
+                        className="ui-badge-slate text-xs font-mono"
                       >
                         {tech}
                       </span>
@@ -352,16 +352,16 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           
           {/* Education */}
-          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3 shadow-lg shadow-black/30">
+          <div className="ui-card p-5 sm:p-6 space-y-3">
             <h4 className="text-sm font-bold text-white flex items-center gap-2">
               <GraduationCap className="w-4 h-4 text-purple-400" />
               <span>{isAr ? 'التعليم الأكاديمي' : 'Education'}</span>
             </h4>
             {cvData.education.map((edu) => (
-              <div key={edu.id} className="bg-[#0A0C10] p-3.5 rounded-lg border border-slate-800 space-y-1">
+              <div key={edu.id} className="ui-subcard p-3.5 space-y-1">
                 <h5 className="text-xs font-bold text-white">{edu.degree}</h5>
                 <p className="text-xs text-purple-300">{edu.institution}</p>
-                <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+                <div className="flex items-center justify-between text-xs text-slate-400 pt-1">
                   <span>{edu.major}</span>
                   <span className="font-mono">{edu.year}</span>
                 </div>
@@ -370,7 +370,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
           </div>
 
           {/* Certifications & Languages */}
-          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3 shadow-lg shadow-black/30">
+          <div className="ui-card p-5 sm:p-6 space-y-3">
             <h4 className="text-sm font-bold text-white flex items-center gap-2">
               <Award className="w-4 h-4 text-amber-400" />
               <span>{isAr ? 'الشهادات واللغات' : 'Certifications & Languages'}</span>
@@ -378,7 +378,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
             
             <div className="space-y-2">
               {cvData.certifications?.map((cert, idx) => (
-                <div key={idx} className="text-xs text-slate-300 flex items-center gap-2 bg-[#0A0C10] p-2 rounded border border-slate-800">
+                <div key={idx} className="text-xs text-slate-300 flex items-center gap-2 ui-subcard p-2.5">
                   <span className="text-amber-400">📜</span>
                   <span>{cert}</span>
                 </div>
@@ -387,10 +387,10 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
             {cvData.languages && cvData.languages.length > 0 && (
               <div className="pt-2">
-                <span className="text-[11px] text-slate-400 block mb-1 font-semibold">{isAr ? 'اللغات:' : 'Languages:'}</span>
+                <span className="text-xs text-slate-400 block mb-1 font-semibold">{isAr ? 'اللغات:' : 'Languages:'}</span>
                 <div className="flex flex-wrap gap-1.5">
                   {cvData.languages.map((langItem, idx) => (
-                    <span key={idx} className="text-[11px] px-2.5 py-0.5 rounded-md bg-[#0A0C10] text-slate-300 border border-slate-800">
+                    <span key={idx} className="ui-badge-slate text-xs">
                       🌐 {langItem}
                     </span>
                   ))}

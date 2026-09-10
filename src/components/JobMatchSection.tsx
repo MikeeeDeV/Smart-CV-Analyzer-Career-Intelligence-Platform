@@ -68,7 +68,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
     <div className="space-y-6">
       
       {/* Job Selection Card */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl shadow-black/40 space-y-6">
+      <div className="ui-card p-6 sm:p-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
 
           <button
             onClick={() => setIsCustomMode(!isCustomMode)}
-            className="text-xs font-medium text-blue-400 hover:text-blue-300 self-start sm:self-auto bg-[#0A0C10] px-3.5 py-2 rounded-lg border border-slate-800 transition-colors"
+            className="ui-btn-secondary text-xs px-3.5 py-2 self-start sm:self-auto"
           >
             {isCustomMode ? (isAr ? '← العودة للوظائف المقترحة' : '← Preset Roles') : (isAr ? '✍️ تخصيص إعلان مخصص' : '✍️ Custom Job Description')}
           </button>
@@ -110,23 +110,23 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                     className={`cursor-pointer rounded-xl p-4 border transition-all duration-150 flex flex-col justify-between ${
                       isSelected
                         ? 'bg-blue-600/10 border-blue-500 shadow-md shadow-blue-600/10'
-                        : 'bg-[#0A0C10] border-slate-800 hover:border-slate-700'
+                        : 'ui-subcard hover:border-slate-700'
                     }`}
                   >
                     <div>
-                      <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-slate-800 text-blue-400 border border-slate-700 inline-block mb-2">
+                      <span className="ui-badge-slate text-xs font-mono inline-block mb-2">
                         {job.category}
                       </span>
                       <h4 className="text-xs sm:text-sm font-bold text-white mb-1">
                         {job.title}
                       </h4>
-                      <p className="text-[11px] text-slate-400 flex items-center gap-1">
-                        <Building2 className="w-3 h-3 text-slate-500" />
+                      <p className="text-xs text-slate-400 flex items-center gap-1">
+                        <Building2 className="w-3.5 h-3.5 text-slate-500" />
                         <span className="truncate">{job.company}</span>
                       </p>
                     </div>
 
-                    <div className="pt-3 mt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
+                    <div className="pt-3 mt-2 border-t border-slate-800 flex items-center justify-between text-xs">
                       <span className="text-slate-500">{job.requirements.length} {isAr ? 'متطلبات' : 'reqs'}</span>
                       {isSelected && <span className="text-blue-400 font-bold">✓ {isAr ? 'محدد' : 'Selected'}</span>}
                     </div>
@@ -147,7 +147,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                 value={customTitle}
                 onChange={(e) => setCustomTitle(e.target.value)}
                 placeholder="e.g. Frontend Developer, Full Stack Engineer..."
-                className="w-full bg-[#0A0C10] border border-slate-800 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-blue-500"
+                className="w-full ui-input"
               />
             </div>
 
@@ -160,7 +160,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                 onChange={(e) => setCustomDesc(e.target.value)}
                 rows={5}
                 placeholder={isAr ? 'الصق نص متطلبات الوظيفة هنا...' : 'Paste job requirements and qualifications here...'}
-                className="w-full bg-[#0A0C10] border border-slate-800 rounded-xl p-4 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-blue-500 font-mono"
+                className="w-full ui-input font-mono"
               />
             </div>
           </div>
@@ -172,7 +172,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
             id="run-match-analysis-btn"
             onClick={handleRunAnalysis}
             disabled={isLoading || !customTitle.trim()}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium text-xs sm:text-sm shadow-md shadow-blue-600/20 transition-all"
+            className="ui-btn-primary px-5 py-2.5 disabled:opacity-50 text-xs sm:text-sm"
           >
             <Sparkles className="w-4 h-4" />
             <span>
@@ -190,16 +190,16 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
         <div className="space-y-6 animate-fade-in">
           
           {/* Main Match Header & Breakdown Card */}
-          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+          <div className="ui-card p-6 sm:p-8">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-800">
               
               {/* Overall Match Percentage */}
               <div className="flex items-center gap-5 text-center sm:text-start">
-                <div className="w-20 h-20 rounded-2xl bg-[#0A0C10] border-2 border-blue-500/40 p-1 shadow-lg shrink-0 flex flex-col items-center justify-center">
+                <div className="w-20 h-20 rounded-xl ui-subcard border-blue-500/30 p-1 shadow-md shrink-0 flex flex-col items-center justify-center">
                   <span className="text-3xl font-bold text-blue-400 font-mono tracking-tight">
                     {matchAnalysis.overallMatch}%
                   </span>
-                  <span className="text-[10px] text-slate-500 font-semibold uppercase">
+                  <span className="text-xs text-slate-400 font-semibold uppercase">
                     {isAr ? 'المطابقة' : 'Match'}
                   </span>
                 </div>
@@ -209,7 +209,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                     <h3 className="text-xl font-bold text-white tracking-tight">
                       {matchAnalysis.jobTitle}
                     </h3>
-                    <span className="text-xs px-2.5 py-0.5 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 font-medium">
+                    <span className="ui-badge-blue">
                       {matchAnalysis.jobCompany || 'Target Role'}
                     </span>
                   </div>
@@ -224,7 +224,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                 <button
                   id="match-to-simulator-btn"
                   onClick={onNavigateToSimulator}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white text-xs sm:text-sm font-medium shadow-sm transition-all shrink-0"
+                  className="ui-btn-secondary text-xs sm:text-sm shrink-0"
                 >
                   <SlidersHorizontal className="w-4 h-4 text-blue-400" />
                   <span>{isAr ? 'تجربة محاكي إضافة المهارات (Simulator)' : 'Try Fit Simulator'}</span>
@@ -240,7 +240,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                 { label: isAr ? 'مطابقة التعليم' : 'Education Match', val: matchAnalysis.educationMatch, color: 'from-purple-500 to-pink-400' },
                 { label: isAr ? 'مطابقة الكلمات' : 'Keywords Match', val: matchAnalysis.keywordsMatch, color: 'from-amber-500 to-yellow-400' },
               ].map((item, idx) => (
-                <div key={idx} className="bg-[#0A0C10] p-3.5 rounded-xl border border-slate-800 space-y-2">
+                <div key={idx} className="ui-subcard p-3.5 space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-400 font-medium">{item.label}</span>
                     <span className="font-bold text-white font-mono">{item.val}%</span>
@@ -257,7 +257,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             {/* Matched Skills (Green) */}
-            <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-4">
+            <div className="ui-card p-6 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                 <div className="flex items-center gap-2">
                   <div className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400">
@@ -267,7 +267,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                     {isAr ? 'المهارات المتطابقة والموجودة في سيرتك (Matched)' : 'Matched Skills in Your CV'}
                   </h4>
                 </div>
-                <span className="text-xs font-bold text-emerald-400 font-mono bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/20">
+                <span className="ui-badge-emerald font-mono">
                   {matchAnalysis.matchedSkills.length} ✓
                 </span>
               </div>
@@ -280,7 +280,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                 {matchAnalysis.matchedSkills.map((skill, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-1.5 bg-slate-800 rounded-lg text-xs sm:text-sm px-3 py-1.5 text-slate-200 border border-slate-700 shadow-sm"
+                    className="inline-flex items-center gap-1.5 bg-slate-800/80 rounded-md text-xs px-3 py-1.5 text-slate-200 border border-slate-700 shadow-sm"
                   >
                     <span className="text-emerald-400 font-bold font-mono">✓</span>
                     <span>{skill}</span>
@@ -290,7 +290,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
             </div>
 
             {/* Missing Skills (Red/Priority Badges) */}
-            <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-4">
+            <div className="ui-card p-6 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                 <div className="flex items-center gap-2">
                   <div className="p-1.5 rounded-lg bg-red-500/10 text-red-400">
@@ -300,7 +300,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                     {isAr ? 'المهارات الناقصة وفجوات القبول (Missing Skills)' : 'Missing Skills & Gaps'}
                   </h4>
                 </div>
-                <span className="text-xs font-bold text-red-400 font-mono bg-red-900/30 px-2.5 py-0.5 rounded-md border border-red-500/20">
+                <span className="ui-badge-rose font-mono">
                   {matchAnalysis.missingSkills.length} ✗
                 </span>
               </div>
@@ -316,14 +316,14 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                   return (
                     <div
                       key={i}
-                      className="bg-[#0A0C10] border border-slate-800 rounded-xl p-3.5 space-y-2 hover:border-slate-700 transition-colors"
+                      className="ui-subcard p-3.5 space-y-2 hover:border-slate-700 transition-colors"
                     >
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-bold text-white">{missing.name}</span>
                         </div>
-                        <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md border ${badge.bg}`}>
-                          <Icon className="w-3 h-3" />
+                        <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-md border ${badge.bg}`}>
+                          <Icon className="w-3.5 h-3.5" />
                           <span>{badge.label}</span>
                         </span>
                       </div>
@@ -332,7 +332,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                         {missing.reason}
                       </p>
 
-                      <div className="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/60 text-[11px] text-slate-300 flex items-start gap-2">
+                      <div className="bg-slate-800/40 p-2.5 rounded-md border border-slate-700/60 text-xs text-slate-300 flex items-start gap-2">
                         <span className="font-bold text-blue-400 shrink-0">💡 {isAr ? 'الإجراء المقترح:' : 'Action:'}</span>
                         <span>{missing.recommendedAction}</span>
                       </div>
@@ -346,7 +346,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
 
           {/* Actionable Smart Recommendations Card */}
           {matchAnalysis.recommendations && matchAnalysis.recommendations.length > 0 && (
-            <div className="bg-blue-600/5 border border-blue-500/20 rounded-2xl p-6 space-y-4">
+            <div className="ui-card p-6 space-y-4 border-blue-500/20 bg-blue-600/5">
               <div className="flex items-center justify-between pb-3 border-b border-blue-500/20">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-blue-400" />
@@ -370,20 +370,20 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                 {matchAnalysis.recommendations.map((rec, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#0A0C10] p-4 rounded-xl border border-slate-800 space-y-2 flex flex-col justify-between"
+                    className="ui-subcard p-4 space-y-2 flex flex-col justify-between"
                   >
                     <div className="space-y-1.5">
                       <div className="flex items-center justify-between">
                         <span className="w-6 h-6 rounded-md bg-blue-600/20 text-blue-400 text-xs font-bold flex items-center justify-center font-mono">
                           {idx + 1}
                         </span>
-                        <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-md inline-block ${
+                        <span className={`text-xs font-semibold uppercase px-2.5 py-0.5 rounded-md inline-block ${
                           rec.urgency === 'high' ? 'bg-red-900/30 text-red-400 border border-red-500/20' : 'bg-blue-600/10 text-blue-400 border border-blue-500/20'
                         }`}>
                           {rec.urgency === 'high' ? (isAr ? 'عاجل ومؤثر' : 'High Impact') : (isAr ? 'موصى به' : 'Recommended')}
                         </span>
                       </div>
-                      <h5 className="text-xs font-bold text-white mt-1">{rec.action}</h5>
+                      <h5 className="text-xs sm:text-sm font-bold text-white mt-1">{rec.action}</h5>
                       <p className="text-xs text-slate-400 leading-relaxed">{rec.detail}</p>
                     </div>
                   </div>

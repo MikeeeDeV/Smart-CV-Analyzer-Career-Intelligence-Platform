@@ -131,10 +131,10 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
     <div className="space-y-6">
       
       {/* Header Card */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+      <div className="ui-card p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 text-xs font-semibold mb-2">
+            <div className="ui-badge-blue mb-3 inline-flex items-center gap-1.5">
               <HelpCircle className="w-3.5 h-3.5" />
               <span>{isAr ? 'محاكي المقابلات الشخصية (Mock Interview)' : 'AI Interview Simulator'}</span>
             </div>
@@ -151,7 +151,7 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
           <button
             onClick={handleGenerateQuestions}
             disabled={isLoading}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm shadow-md shadow-blue-600/20 transition-all self-start sm:self-auto shrink-0"
+            className="ui-btn-primary flex items-center gap-2 self-start sm:self-auto shrink-0"
           >
             {isLoading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
             <span>{isAr ? 'توليد أسئلة ذكية جديدة' : 'Generate New Questions'}</span>
@@ -169,10 +169,10 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
             <button
               key={tab.id}
               onClick={() => setSelectedCategory(tab.id as any)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`px-3.5 py-1.5 text-xs font-medium transition-all ${
                 selectedCategory === tab.id
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'bg-[#0A0C10] text-slate-400 hover:text-slate-200 border border-slate-800'
+                  ? 'ui-btn-primary'
+                  : 'ui-btn-secondary'
               }`}
             >
               {tab.label}
@@ -189,8 +189,8 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
           return (
             <div
               key={q.id || idx}
-              className={`bg-[#0F1117] border rounded-2xl transition-all overflow-hidden ${
-                isOpen ? 'border-blue-500/50 shadow-lg shadow-blue-500/5' : 'border-slate-800'
+              className={`ui-card transition-all overflow-hidden ${
+                isOpen ? 'border-blue-500/50 shadow-surface-hover' : ''
               }`}
             >
               {/* Question Header */}
@@ -199,7 +199,7 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
                 className="p-5 flex items-start justify-between gap-4 cursor-pointer hover:bg-slate-800/30 transition-colors"
               >
                 <div className="flex items-start gap-3">
-                  <span className="w-7 h-7 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center shrink-0">
+                  <span className="w-7 h-7 rounded-[var(--radius-control)] bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center shrink-0">
                     Q{idx + 1}
                   </span>
                   <div>
@@ -212,7 +212,7 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
                   </div>
                 </div>
 
-                <div className="p-1 rounded-lg bg-[#0A0C10] text-slate-400 shrink-0">
+                <div className="p-1.5 rounded-[var(--radius-control)] bg-[var(--color-surface-inset)] text-slate-400 shrink-0">
                   {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </div>
               </div>
@@ -222,7 +222,7 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
                 <div className="px-5 pb-6 pt-2 border-t border-slate-800 space-y-4 animate-fade-in">
                   
                   {/* Ideal Answer Box */}
-                  <div className="bg-[#0A0C10] p-4 rounded-xl border border-slate-800 space-y-2">
+                  <div className="ui-subcard p-4 space-y-2">
                     <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5" />
                       <span>{isAr ? 'دليل الإجابة النموذجية الفائزة (Winning Answer Strategy):' : 'Winning Answer Strategy:'}</span>
@@ -242,10 +242,10 @@ export const InterviewPrepSection: React.FC<InterviewPrepSectionProps> = ({
                         {q.keyPointsToCover.map((pt, pIdx) => (
                           <div
                             key={pIdx}
-                            className="bg-[#0A0C10] p-2.5 rounded-lg border border-slate-800 text-xs text-slate-300 flex items-center gap-2"
+                            className="ui-subcard p-2.5 text-xs text-slate-300 flex items-center gap-2"
                           >
                             <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                            <span className="text-[11px]">{pt}</span>
+                            <span className="text-xs leading-normal">{pt}</span>
                           </div>
                         ))}
                       </div>

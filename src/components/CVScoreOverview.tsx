@@ -88,7 +88,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
     <div className="space-y-6">
       
       {/* Top Banner with Overall Score & Summary */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+      <div className="ui-card p-6 sm:p-8 relative overflow-hidden">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           
           {/* Left: Score Gauge */}
@@ -120,24 +120,24 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <span className="text-4xl font-bold text-white tracking-tight">{score.overall}</span>
-                  <span className="text-[11px] text-slate-500 font-medium">{isAr ? 'من 100' : 'out of 100'}</span>
+                  <span className="text-xs text-slate-500 font-medium">{isAr ? 'من 100' : 'out of 100'}</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 w-full gap-2 mt-3">
-                <div className="bg-slate-800/40 border border-slate-800/60 p-2 rounded-lg text-center">
-                  <p className="text-[10px] text-slate-500 uppercase font-medium">{isAr ? 'تصنيف ATS' : 'ATS Rank'}</p>
-                  <p className="text-base font-bold text-emerald-400">{score.atsScore}%</p>
+                <div className="ui-subcard p-2.5 text-center">
+                  <p className="text-xs text-slate-400 uppercase font-medium">{isAr ? 'تصنيف ATS' : 'ATS Rank'}</p>
+                  <p className="text-base font-bold text-emerald-400 font-mono">{score.atsScore}%</p>
                 </div>
-                <div className="bg-slate-800/40 border border-slate-800/60 p-2 rounded-lg text-center">
-                  <p className="text-[10px] text-slate-500 uppercase font-medium">{isAr ? 'الجودة' : 'Quality'}</p>
-                  <p className="text-base font-bold text-blue-400">{score.contentQuality}%</p>
+                <div className="ui-subcard p-2.5 text-center">
+                  <p className="text-xs text-slate-400 uppercase font-medium">{isAr ? 'الجودة' : 'Quality'}</p>
+                  <p className="text-base font-bold text-blue-400 font-mono">{score.contentQuality}%</p>
                 </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold bg-blue-600/10 text-blue-400 border border-blue-500/20">
+              <div className="ui-badge-blue">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{getScoreBadge(score.overall)}</span>
               </div>
@@ -157,7 +157,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
             <button
               id="explain-score-btn"
               onClick={() => setShowExplainModal(true)}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white font-medium text-xs sm:text-sm shadow-sm transition-all group"
+              className="ui-btn-secondary group"
             >
               <HelpCircle className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
               <span>{isAr ? `لماذا حصلت على ${score.overall}%؟ (تحليل الأسباب)` : `Why ${score.overall}%? (Explain Score)`}</span>
@@ -167,7 +167,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
               <button
                 id="score-to-match-btn"
                 onClick={onNavigateToMatch}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm shadow-md shadow-blue-600/20 transition-all"
+                className="ui-btn-primary"
               >
                 <span>{isAr ? 'مقارنة مع متطلبات الوظيفة' : 'Compare With Job'}</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -185,7 +185,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
           return (
             <div
               key={card.id}
-              className="bg-[#0F1117] border border-slate-800 hover:border-slate-700 rounded-xl p-5 transition-all space-y-3 shadow-md shadow-black/30 hover:shadow-xl hover:shadow-black/50"
+              className="ui-subcard-hover p-4 sm:p-5 space-y-3"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
@@ -219,7 +219,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
 
       {/* ATS Intelligence Card */}
       {score.atsDetails && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4 text-xs shadow-lg shadow-black/30">
+        <div className="ui-card p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <ShieldCheck className="w-5 h-5 shrink-0" />
@@ -237,16 +237,16 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4 font-mono text-slate-300">
-            <div className="px-3 py-1.5 rounded-lg bg-[#0A0C10] border border-slate-800">
-              <span className="text-slate-500 text-[10px] block font-sans uppercase font-semibold">{isAr ? 'كثافة الكلمات' : 'Density'}</span>
+            <div className="ui-subcard px-3.5 py-2">
+              <span className="text-slate-400 text-xs block font-sans uppercase font-medium">{isAr ? 'كثافة الكلمات' : 'Density'}</span>
               <span className="font-bold text-blue-400">{score.atsDetails.keywordDensity}</span>
             </div>
-            <div className="px-3 py-1.5 rounded-lg bg-[#0A0C10] border border-slate-800">
-              <span className="text-slate-500 text-[10px] block font-sans uppercase font-semibold">{isAr ? 'أفعال التأثير' : 'Action Verbs'}</span>
+            <div className="ui-subcard px-3.5 py-2">
+              <span className="text-slate-400 text-xs block font-sans uppercase font-medium">{isAr ? 'أفعال التأثير' : 'Action Verbs'}</span>
               <span className="font-bold text-emerald-400">{score.atsDetails.actionVerbCount}+</span>
             </div>
-            <div className="px-3 py-1.5 rounded-lg bg-[#0A0C10] border border-slate-800">
-              <span className="text-slate-500 text-[10px] block font-sans uppercase font-semibold">{isAr ? 'اكتمال الأقسام' : 'Completeness'}</span>
+            <div className="ui-subcard px-3.5 py-2">
+              <span className="text-slate-400 text-xs block font-sans uppercase font-medium">{isAr ? 'اكتمال الأقسام' : 'Completeness'}</span>
               <span className="font-bold text-blue-400">{score.atsDetails.sectionCompleteness}%</span>
             </div>
           </div>
@@ -256,7 +256,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
       {/* "Why X%?" Modal Drawer */}
       {showExplainModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto space-y-6">
+          <div className="ui-card max-w-2xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto space-y-6">
             
             {/* Modal Header */}
             <div className="flex items-center justify-between pb-4 border-b border-slate-800">

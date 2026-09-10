@@ -59,11 +59,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="font-bold text-base sm:text-lg tracking-tight text-white">
                   CAREER.AI
                 </span>
-                <span className="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 hidden sm:inline-block">
+                <span className="ui-badge-blue hidden sm:inline-flex">
                   Sleek ATS
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 hidden sm:block">
+              <p className="text-xs text-slate-400 hidden sm:block">
                 {isAr ? 'منصة تقييم السيرة الذاتية والذكاء المهني' : 'Smart CV & Career Intelligence'}
               </p>
             </div>
@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="header-upload-btn"
               onClick={() => onTabChange('upload')}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 transition-all"
+              className="ui-btn-primary text-xs px-3.5 py-1.5"
             >
               <span>{isAr ? '+ رفع CV جديد' : '+ Upload New CV'}</span>
             </button>

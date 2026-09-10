@@ -125,10 +125,10 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
     <div className="space-y-6">
       
       {/* Header Banner */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+      <div className="ui-card p-6 sm:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 text-xs font-semibold mb-2">
+            <div className="ui-badge-blue mb-2">
               <Compass className="w-3.5 h-3.5" />
               <span>{isAr ? 'خارطة الطريق المهنية المخصصة' : 'Personalized Career Roadmap'}</span>
             </div>
@@ -143,7 +143,7 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
           </div>
 
           {/* Role generator box */}
-          <div className="flex items-center gap-2 bg-[#0A0C10] p-2 rounded-xl border border-slate-800 shrink-0">
+          <div className="flex items-center gap-2 ui-subcard p-1.5 shrink-0">
             <input
               type="text"
               value={role}
@@ -154,7 +154,7 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
             <button
               onClick={handleGenerateRoadmap}
               disabled={isLoading}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium transition-colors"
+              className="ui-btn-primary px-3.5 py-1.5 text-xs"
             >
               {isLoading ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5" />}
               <span>{isAr ? 'تحديث الخطة' : 'Update'}</span>
@@ -192,34 +192,34 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
                     }`}
                     title={isAr ? 'اضغط لتغيير الحالة' : 'Click to toggle status'}
                   >
-                    {isDone ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : <span className="text-[10px] font-bold">{idx + 1}</span>}
+                    {isDone ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : <span className="text-xs font-bold">{idx + 1}</span>}
                   </div>
 
                   {/* Step Content Card */}
                   <div
-                    className={`p-5 rounded-2xl border transition-all ${
+                    className={`p-5 rounded-xl border transition-all ${
                       isCurrent
                         ? 'bg-blue-600/5 border-blue-500/40 shadow-lg shadow-blue-500/5'
                         : isDone
-                        ? 'bg-[#0A0C10] border-slate-800'
-                        : 'bg-[#0A0C10]/60 border-slate-800/80'
+                        ? 'ui-subcard'
+                        : 'ui-subcard opacity-80'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
                       
                       <div className="flex items-center gap-2.5">
                         {isCurrent && (
-                          <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-md bg-blue-600 text-white font-mono tracking-wider">
+                          <span className="ui-badge-blue font-mono">
                             {isAr ? '📍 أنت هنا (YOU ARE HERE)' : '📍 YOU ARE HERE'}
                           </span>
                         )}
                         {isDone && (
-                          <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                          <span className="ui-badge-emerald font-mono">
                             ✓ {isAr ? 'تم اكتسابها' : 'Acquired'}
                           </span>
                         )}
                         {!isDone && !isCurrent && (
-                          <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-slate-800 text-slate-400">
+                          <span className="ui-badge-slate">
                             {isAr ? 'المرحلة القادمة' : 'Upcoming'}
                           </span>
                         )}
@@ -230,7 +230,7 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
                       </div>
 
                       <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-                        <span className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-blue-300">
+                        <span className="px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 text-blue-300">
                           {step.level}
                         </span>
                         <span className="flex items-center gap-1">
@@ -240,14 +240,14 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-300 py-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-300 py-3 leading-relaxed">
                       {step.description}
                     </p>
 
                     {/* Practice Project & Resources */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
-                      <div className="bg-[#0A0C10] p-3 rounded-xl border border-slate-800 space-y-1">
-                        <span className="text-[10px] font-bold text-blue-400 uppercase flex items-center gap-1">
+                      <div className="ui-subcard p-3.5 space-y-1">
+                        <span className="text-xs font-semibold text-blue-400 uppercase flex items-center gap-1">
                           <Code className="w-3 h-3" />
                           <span>{isAr ? 'المشروع العملي المقترح للإتقان:' : 'Suggested Capstone Project:'}</span>
                         </span>
@@ -256,14 +256,14 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
                         </p>
                       </div>
 
-                      <div className="bg-[#0A0C10] p-3 rounded-xl border border-slate-800 space-y-1">
-                        <span className="text-[10px] font-bold text-blue-400 uppercase flex items-center gap-1">
+                      <div className="ui-subcard p-3.5 space-y-1">
+                        <span className="text-xs font-semibold text-blue-400 uppercase flex items-center gap-1">
                           <BookOpen className="w-3 h-3" />
                           <span>{isAr ? 'أهم المصادر التعليمية الموصى بها:' : 'Recommended Resources:'}</span>
                         </span>
                         <div className="flex flex-wrap gap-1.5">
                           {step.resources?.map((res, rIdx) => (
-                            <span key={rIdx} className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                            <span key={rIdx} className="ui-badge-slate text-xs">
                               📚 {res}
                             </span>
                           ))}
@@ -279,7 +279,7 @@ export const CareerRoadmapSection: React.FC<CareerRoadmapSectionProps> = ({
 
           {/* Goal Achieved Banner */}
           <div className="sm:ps-16 rtl:sm:pe-16 rtl:sm:ps-0 pt-6">
-            <div className="bg-blue-600/5 border border-blue-500/20 rounded-2xl p-5 flex items-center justify-between gap-4">
+            <div className="ui-card p-5 border-blue-500/20 bg-blue-600/5 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-600/10 text-blue-400 border border-blue-500/20 flex items-center justify-center shrink-0">
                   <Sparkles className="w-5 h-5" />

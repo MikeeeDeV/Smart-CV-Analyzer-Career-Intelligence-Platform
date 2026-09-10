@@ -111,7 +111,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto py-4">
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+      <div className="ui-card p-6 sm:p-8 relative overflow-hidden">
         
         {/* Glow accent */}
         <div className="absolute -right-20 -top-20 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
@@ -228,7 +228,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                   {isAr ? 'صيغ الملفات المقبولة: PDF, DOCX, TXT (الحجم الأقصى 10MB)' : 'Accepted formats: PDF, DOCX, TXT (Max 10MB)'}
                 </p>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium border border-slate-700 hover:border-slate-600 transition-colors">
+                <div className="ui-btn-secondary text-xs">
                   <FileText className="w-4 h-4 text-blue-400" />
                   <span>{isAr ? 'تصفح جهازك' : 'Choose File'}</span>
                 </div>
@@ -248,7 +248,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                       : `Paste your resume text here...\n\nExample:\nHaneen Ahmed\nFrontend Developer\nSkills: HTML, CSS, JavaScript, React, Git\nExperience: Frontend Developer Intern...`
                   }
                   rows={8}
-                  className="w-full bg-[#0A0C10] border border-slate-800 rounded-xl p-4 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono transition-colors"
+                  className="w-full ui-input p-4 font-mono"
                 />
 
                 <div className="flex justify-end">
@@ -256,7 +256,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                     id="submit-pasted-cv-btn"
                     onClick={handlePasteSubmit}
                     disabled={!pastedText.trim()}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium text-xs shadow-md shadow-blue-600/20 transition-all"
+                    className="ui-btn-primary px-5 py-2.5 disabled:opacity-50 text-xs"
                   >
                     <Sparkles className="w-4 h-4" />
                     <span>{isAr ? 'تحليل النص المدخل' : 'Analyze Text'}</span>
@@ -268,7 +268,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
 
             {/* Error Message */}
             {errorMsg && (
-              <div className="mt-4 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs flex items-center gap-2">
+              <div className="mt-4 p-3 rounded-md bg-red-500/10 border border-red-500/25 text-red-300 text-xs flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{errorMsg}</span>
               </div>
@@ -285,7 +285,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                   <button
                     id="sample-cv-haneen-btn"
                     onClick={() => onLoadSample('haneen')}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/20 text-blue-300 hover:text-blue-200 text-xs font-medium transition-colors"
+                    className="ui-badge-blue hover:bg-blue-600/20 transition-colors"
                   >
                     <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                     <span>{isAr ? 'حنين أحمد (Frontend Developer)' : 'Haneen (Frontend Dev)'}</span>
@@ -294,7 +294,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                   <button
                     id="sample-cv-omar-btn"
                     onClick={() => onLoadSample('omar')}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white text-xs font-medium transition-colors"
+                    className="ui-btn-secondary text-xs px-3 py-1.5"
                   >
                     <span>{isAr ? 'عمر خالد (Full Stack)' : 'Omar (Full Stack)'}</span>
                   </button>

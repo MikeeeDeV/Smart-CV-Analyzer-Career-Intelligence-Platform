@@ -126,26 +126,26 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({
   };
 
   return (
-    <div className="bg-[#0F1117] border border-slate-800 rounded-2xl shadow-2xl flex flex-col h-[650px] overflow-hidden">
+    <div className="ui-card shadow-2xl flex flex-col h-[650px] overflow-hidden">
       
       {/* Chat Header */}
-      <div className="p-4 bg-[#0A0C10] border-b border-slate-800 flex items-center justify-between">
+      <div className="p-4 bg-[var(--color-surface-subtle)] border-b border-slate-800 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 p-0.5 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-[var(--radius-subcard)] bg-blue-500/10 border border-blue-500/20 p-0.5 flex items-center justify-center">
               <Bot className="w-5 h-5 text-blue-400" />
             </div>
-            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[#0A0C10]" />
+            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[var(--color-surface-subtle)]" />
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-white flex items-center gap-1.5 tracking-tight">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2 tracking-tight">
               <span>{isAr ? 'المستشار المهني الذكي (AI Career Advisor)' : 'AI Career Advisor'}</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-600/10 text-blue-400 border border-blue-500/20">
+              <span className="ui-badge-blue text-[11px] font-mono px-2 py-0.5">
                 Gemini 2.5
               </span>
             </h3>
-            <p className="text-[11px] text-slate-400">
+            <p className="text-xs text-slate-400 mt-0.5">
               {isAr ? `متصل ومطلع على ملف: ${cvData?.personalInfo.name || 'السيرة'}` : `Ready • Target: ${targetRole}`}
             </p>
           </div>
@@ -154,7 +154,7 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({
         {onClose && (
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-[var(--radius-control)] text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -162,7 +162,7 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({
       </div>
 
       {/* Messages Stream */}
-      <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-[#0F1117]">
+      <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-[var(--color-surface)]">
         {messages.map((msg) => {
           const isUser = msg.role === 'user';
           return (
@@ -171,20 +171,20 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({
               className={`flex items-start gap-3 ${isUser ? 'flex-row-reverse' : ''}`}
             >
               <div
-                className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 text-xs ${
+                className={`w-7 h-7 rounded-[var(--radius-control)] flex items-center justify-center shrink-0 text-xs ${
                   isUser
                     ? 'bg-blue-600 text-white'
-                    : 'bg-[#0A0C10] text-blue-400 border border-slate-800'
+                    : 'bg-[var(--color-surface-inset)] text-blue-400 border border-slate-800'
                 }`}
               >
                 {isUser ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
               </div>
 
               <div
-                className={`max-w-[82%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed space-y-1 ${
+                className={`max-w-[82%] rounded-[var(--radius-card)] p-3.5 sm:p-4 text-xs sm:text-sm leading-relaxed space-y-1 ${
                   isUser
-                    ? 'bg-blue-600 text-white rounded-tr-none'
-                    : 'bg-[#0A0C10] border border-slate-800 text-slate-200 rounded-tl-none whitespace-pre-wrap'
+                    ? 'bg-blue-600 text-white rounded-tr-none shadow-md shadow-blue-600/10'
+                    : 'ui-subcard rounded-tl-none whitespace-pre-wrap text-slate-200'
                 }`}
               >
                 <p>{msg.content}</p>
@@ -202,10 +202,10 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({
 
         {isLoading && (
           <div className="flex items-start gap-3">
-            <div className="w-7 h-7 rounded-lg bg-[#0A0C10] text-blue-400 border border-slate-800 flex items-center justify-center shrink-0">
+            <div className="w-7 h-7 rounded-[var(--radius-control)] bg-[var(--color-surface-inset)] text-blue-400 border border-slate-800 flex items-center justify-center shrink-0">
               <Bot className="w-4 h-4" />
             </div>
-            <div className="bg-[#0A0C10] border border-slate-800 rounded-2xl rounded-tl-none p-3 text-xs text-slate-400 flex items-center gap-2">
+            <div className="ui-subcard rounded-tl-none p-3 text-xs text-slate-400 flex items-center gap-2">
               <Loader2 className="w-4 h-4 animate-spin text-blue-400" />
               <span>{isAr ? 'المستشار الذكي يحلل ويكتب الرد...' : 'AI Advisor is drafting recommendations...'}</span>
             </div>
@@ -216,15 +216,15 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({
       </div>
 
       {/* Suggested Quick Questions Chips */}
-      <div className="p-2.5 bg-[#0A0C10] border-t border-slate-800 overflow-x-auto no-scrollbar flex items-center gap-2">
-        <span className="text-[10px] text-slate-500 uppercase font-bold shrink-0 ps-2">
+      <div className="p-2.5 bg-[var(--color-surface-subtle)] border-t border-slate-800 overflow-x-auto no-scrollbar flex items-center gap-2">
+        <span className="text-xs text-slate-400 uppercase font-bold shrink-0 ps-2">
           {isAr ? 'أسئلة مقترحة:' : 'Suggestions:'}
         </span>
         {quickQuestions.map((q, idx) => (
           <button
             key={idx}
             onClick={() => handleSendMessage(q)}
-            className="text-[11px] px-3 py-1 rounded-full bg-[#0F1117] hover:bg-slate-800 border border-slate-800 text-slate-300 whitespace-nowrap transition-colors"
+            className="text-xs px-3 py-1.5 rounded-full ui-subcard hover:border-slate-700 text-slate-300 whitespace-nowrap transition-colors"
           >
             {q}
           </button>
@@ -232,21 +232,21 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({
       </div>
 
       {/* Chat Input Bar */}
-      <div className="p-3 bg-[#0A0C10] border-t border-slate-800 flex items-center gap-2">
+      <div className="p-3 bg-[var(--color-surface-subtle)] border-t border-slate-800 flex items-center gap-2">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
           placeholder={isAr ? 'اسأل المستشار أي سؤال حول سيرتك، مقابلاتك أو خطتك المهنية...' : 'Ask your AI career advisor anything...'}
-          className="flex-1 bg-[#0F1117] border border-slate-800 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500"
+          className="flex-1 ui-input py-2.5 text-xs sm:text-sm"
         />
 
         <button
           id="send-chat-msg-btn"
           onClick={() => handleSendMessage()}
           disabled={isLoading || !input.trim()}
-          className="p-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white shadow-md shadow-blue-600/20 transition-all shrink-0"
+          className="ui-btn-primary p-2.5 shrink-0 flex items-center justify-center"
         >
           <Send className="w-4 h-4 rtl:rotate-180" />
         </button>

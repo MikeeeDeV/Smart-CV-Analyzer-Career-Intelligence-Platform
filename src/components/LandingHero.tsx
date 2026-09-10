@@ -65,7 +65,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
         <div className="text-center max-w-3xl mx-auto space-y-6 pt-4 pb-8">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-medium shadow-sm">
+          <div className="ui-badge-blue px-3.5 py-1.5 inline-flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{isAr ? 'منصة التقييم والذكاء المهني المتقدمة' : 'Next-Gen Career Intelligence Platform'}</span>
           </div>
@@ -95,7 +95,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             <button
               id="hero-upload-cta"
               onClick={onStartUpload}
-              className="flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm shadow-md shadow-blue-600/20 transition-all"
+              className="ui-btn-primary px-6 py-3 text-sm flex items-center gap-2"
             >
               <Upload className="w-4 h-4" />
               <span>{isAr ? 'ابدأ برفع سيرتك الذاتية الآن' : 'Upload Your CV Now'}</span>
@@ -106,7 +106,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             <button
               id="hero-sample-haneen-cta"
               onClick={() => onLoadSample('haneen')}
-              className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0F1117] border border-slate-800 text-slate-200 font-medium text-sm hover:bg-slate-800 hover:text-white transition-all shadow-sm"
+              className="ui-btn-secondary px-4 py-3 text-sm flex items-center gap-2"
             >
               <FileText className="w-4 h-4 text-blue-400" />
               <span>{isAr ? 'تجربة سيرة جاهزة: حنين أحمد (Frontend)' : 'Try Sample: Haneen (Frontend)'}</span>
@@ -115,7 +115,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             <button
               id="hero-sample-omar-cta"
               onClick={() => onLoadSample('omar')}
-              className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0F1117] border border-slate-800 text-slate-400 font-medium text-xs hover:bg-slate-800 hover:text-slate-200 transition-all"
+              className="ui-btn-secondary px-4 py-3 text-xs flex items-center gap-2 text-slate-400"
             >
               <span>{isAr ? 'سيرة: عمر خالد (Full Stack)' : 'Sample: Omar (Full Stack)'}</span>
             </button>
@@ -145,7 +145,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
         {/* 5-Step Visual Workflow Section */}
         <div className="mt-8 pt-8 border-t border-slate-800">
           <div className="text-center mb-8">
-            <span className="text-xs font-medium tracking-wider uppercase text-blue-400 bg-blue-600/10 px-3 py-1 rounded-full border border-blue-500/20">
+            <span className="ui-badge-blue px-3 py-1 inline-block uppercase tracking-wider">
               {isAr ? 'كيف تعمل المنصة؟' : 'How It Works'}
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
@@ -159,14 +159,14 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
               return (
                 <div
                   key={step.num}
-                  className="relative group bg-[#0F1117] hover:bg-slate-800/40 border border-slate-800 rounded-xl p-4 transition-all duration-200 flex flex-col justify-between"
+                  className="relative group ui-subcard-hover p-4.5 flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs font-bold text-slate-500 font-mono">
                         {step.num}
                       </span>
-                      <div className={`p-2 rounded-lg ${step.color} border`}>
+                      <div className={`p-2 rounded-[var(--radius-control)] ${step.color} border`}>
                         <Icon className="w-4 h-4" />
                       </div>
                     </div>
@@ -180,7 +180,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
 
                   {idx < workflowSteps.length - 1 && (
                     <div className="hidden lg:block absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 rtl:right-auto rtl:-left-2.5">
-                      <div className="w-5 h-5 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400">
+                      <div className="w-6 h-6 rounded-full bg-[var(--color-surface-subtle)] border border-slate-700 flex items-center justify-center text-slate-400 shadow-sm">
                         <ChevronRight className="w-3 h-3 rtl:rotate-180" />
                       </div>
                     </div>

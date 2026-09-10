@@ -88,10 +88,10 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
     <div className="space-y-6">
       
       {/* Header Banner */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+      <div className="ui-card p-6 sm:p-8 relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 text-xs font-semibold">
+            <div className="ui-badge-blue">
               <SlidersHorizontal className="w-3.5 h-3.5" />
               <span>{isAr ? 'محاكي القبول والـ What-If Fit' : 'Interactive Fit Simulator'}</span>
             </div>
@@ -106,9 +106,9 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
           </div>
 
           {/* Real-time score comparison gauge */}
-          <div className="flex items-center gap-4 bg-[#0A0C10] p-4 rounded-xl border border-slate-800 shrink-0">
+          <div className="flex items-center gap-4 ui-subcard p-4 shrink-0">
             <div className="text-center px-3">
-              <span className="text-xs text-slate-500 block font-medium mb-0.5">
+              <span className="text-xs text-slate-400 block font-medium mb-0.5">
                 {isAr ? 'المطابقة الحالية' : 'Current'}
               </span>
               <span className="text-2xl font-bold text-slate-400 font-mono">
@@ -118,7 +118,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
 
             <div className="text-blue-400 font-bold text-lg">→</div>
 
-            <div className="text-center px-3 bg-blue-600/10 rounded-lg p-2 border border-blue-500/30">
+            <div className="text-center px-3 bg-blue-600/10 rounded-lg p-2 border border-blue-500/25">
               <span className="text-xs text-blue-300 block font-bold mb-0.5 flex items-center justify-center gap-1">
                 <Sparkles className="w-3 h-3 text-blue-400" />
                 <span>{isAr ? 'النسبة التقديرية' : 'Estimated'}</span>
@@ -135,7 +135,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Left 2 Cols: Missing Skills Toggles */}
-        <div className="lg:col-span-2 bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-4 shadow-lg shadow-black/30">
+        <div className="lg:col-span-2 ui-card p-6 space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-800">
             <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
               <SlidersHorizontal className="w-4 h-4 text-blue-400" />
@@ -154,7 +154,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
                 className={`p-4 rounded-xl border cursor-pointer transition-all flex items-center justify-between gap-4 ${
                   skill.checked
                     ? 'bg-blue-600/10 border-blue-500/60 shadow-sm'
-                    : 'bg-[#0A0C10] border-slate-800 hover:border-slate-700'
+                    : 'ui-subcard hover:border-slate-700'
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -178,7 +178,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
                   </div>
                 </div>
 
-                <span className="text-[11px] font-semibold font-mono px-2 py-0.5 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 shrink-0">
+                <span className="ui-badge-blue shrink-0 font-mono">
                   +{skill.weight}%
                 </span>
               </div>
@@ -196,7 +196,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
               className={`p-3.5 rounded-xl border cursor-pointer transition-all flex items-center justify-between gap-3 ${
                 includeProject
                   ? 'bg-emerald-600/10 border-emerald-500/60'
-                  : 'bg-[#0A0C10] border-slate-800'
+                  : 'ui-subcard'
               }`}
             >
               <div className="flex items-center gap-3">
@@ -213,7 +213,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
                   <span className="text-xs font-bold text-slate-200 block">
                     {isAr ? 'إضافة مشروع عملي متقدم بالتقنيات المطلوبة (React + TS + API)' : 'Add full-scale Capstone project (React + TS + API)'}
                   </span>
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-xs text-slate-400">
                     {isAr ? 'يثبت قدرتك على التطبيق الفعلي للمهارات' : 'Demonstrates production-grade capability'}
                   </span>
                 </div>
@@ -226,7 +226,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
               className={`p-3.5 rounded-xl border cursor-pointer transition-all flex items-center justify-between gap-3 ${
                 includeMetrics
                   ? 'bg-emerald-600/10 border-emerald-500/60'
-                  : 'bg-[#0A0C10] border-slate-800'
+                  : 'ui-subcard'
               }`}
             >
               <div className="flex items-center gap-3">
@@ -243,7 +243,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
                   <span className="text-xs font-bold text-slate-200 block">
                     {isAr ? 'صياغة الخبرات بالأرقام والنسب المئوية (Google X-Y-Z Formula)' : 'Quantify bullet points with percentages and metrics'}
                   </span>
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-xs text-slate-400">
                     {isAr ? 'مثل: تسريع التحميل بنسبة 35% وزيادة التفاعل' : 'e.g. 35% speedup, 10k+ requests handled'}
                   </span>
                 </div>
@@ -254,13 +254,13 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
         </div>
 
         {/* Right Col: Simulation Summary & Apply */}
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-5 flex flex-col justify-between shadow-lg shadow-black/30">
+        <div className="ui-card p-6 space-y-5 flex flex-col justify-between">
           <div className="space-y-4">
             <h3 className="text-base font-bold text-white tracking-tight">
               {isAr ? 'ملخص المحاكاة والنتيجة' : 'Simulation Summary'}
             </h3>
 
-            <div className="p-4 rounded-xl bg-[#0A0C10] border border-slate-800 space-y-3">
+            <div className="p-4 ui-subcard space-y-3">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-400">{isAr ? 'الدرجة الأصلية:' : 'Base Score:'}</span>
                 <span className="font-mono font-bold text-slate-300">{baseScore}%</span>
@@ -275,7 +275,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
               </div>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-[#0A0C10] border border-slate-800 text-xs leading-relaxed text-slate-400 flex items-start gap-2.5">
+            <div className="p-3.5 ui-subcard text-xs leading-relaxed text-slate-400 flex items-start gap-2.5">
               <AlertCircle className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
               <span>
                 {isAr
@@ -288,7 +288,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
           <button
             onClick={handleApply}
             disabled={simulatedSkills.filter((s) => s.checked).length === 0}
-            className="w-full py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium text-xs sm:text-sm shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/35 transition-all flex items-center justify-center gap-2"
+            className="w-full ui-btn-primary py-3 disabled:opacity-50 text-xs sm:text-sm"
           >
             <Sparkles className="w-4 h-4" />
             <span>{isAr ? 'تطبيق هذه المهارات في سيرتي الحالية' : 'Apply Selected Skills to My CV'}</span>

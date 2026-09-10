@@ -293,10 +293,10 @@ export default function App() {
           <div className="space-y-8 animate-fade-in">
             
             {/* Quick Action Navigation Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-[#0F1117] p-3.5 rounded-2xl border border-slate-800 shadow-lg shadow-black/30">
+            <div className="flex flex-wrap items-center justify-between gap-3 ui-card p-3.5">
               <div className="flex items-center gap-2 text-xs">
                 <span className="text-slate-400">{isAr ? 'الملف الحالي:' : 'Active Profile:'}</span>
-                <span className="font-medium text-white bg-[#0A0C10] px-2.5 py-1 rounded-lg border border-slate-800">
+                <span className="font-medium text-white ui-subcard px-2.5 py-1">
                   {cvData.personalInfo.name} ({cvData.personalInfo.title})
                 </span>
               </div>
@@ -305,7 +305,7 @@ export default function App() {
                 <button
                   id="dash-match-shortcut"
                   onClick={() => setActiveTab('job_match')}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 border border-blue-500/20 text-xs font-medium transition-colors"
+                  className="ui-badge-blue hover:bg-blue-600/20 transition-colors"
                 >
                   <Target className="w-3.5 h-3.5" />
                   <span>{isAr ? 'فحص مطابقة الوظيفة' : 'Job Match'}</span>
@@ -314,7 +314,7 @@ export default function App() {
                 <button
                   id="dash-simulator-shortcut"
                   onClick={() => setActiveTab('simulator')}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 border border-blue-500/20 text-xs font-medium transition-colors"
+                  className="ui-badge-blue hover:bg-blue-600/20 transition-colors"
                 >
                   <SlidersHorizontal className="w-3.5 h-3.5" />
                   <span>{isAr ? 'محاكي القبول' : 'Fit Simulator'}</span>
@@ -323,7 +323,7 @@ export default function App() {
                 <button
                   id="dash-improver-shortcut"
                   onClick={() => setActiveTab('improver')}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-xs font-medium transition-colors"
+                  className="ui-badge-emerald hover:bg-emerald-500/20 transition-colors"
                 >
                   <Zap className="w-3.5 h-3.5" />
                   <span>{isAr ? 'مُحسّن الصياغة (AI)' : 'AI Enhancer'}</span>
@@ -332,7 +332,7 @@ export default function App() {
                 <button
                   id="dash-new-cv-btn"
                   onClick={() => setActiveTab('upload')}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium border border-slate-700 hover:border-slate-600 transition-colors"
+                  className="ui-btn-secondary text-xs px-3 py-1.5"
                 >
                   <Upload className="w-3.5 h-3.5" />
                   <span>{isAr ? 'رفع سيرة جديدة' : 'Upload New'}</span>

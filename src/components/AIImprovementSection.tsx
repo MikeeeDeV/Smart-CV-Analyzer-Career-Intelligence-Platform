@@ -101,7 +101,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
     <div className="space-y-6">
       
       {/* Header Banner */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl">
+      <div className="ui-card p-6 sm:p-7">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2">
@@ -133,7 +133,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
                   setInputText(preset.text);
                   handleEnhance(preset.text);
                 }}
-                className="px-3 py-1.5 rounded-lg bg-[#0A0C10] hover:bg-slate-800 border border-slate-800 text-slate-300 text-xs font-medium transition-colors"
+                className="ui-subcard px-3 py-1.5 text-xs font-medium hover:border-slate-700 transition-colors"
               >
                 {preset.label}
               </button>
@@ -151,7 +151,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
             onChange={(e) => setInputText(e.target.value)}
             rows={3}
             placeholder={isAr ? 'مثال: عملت على موقع الجامعة وسجلت الطلاب...' : 'e.g. Worked on website development.'}
-            className="w-full bg-[#0A0C10] border border-slate-800 rounded-xl p-3.5 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-blue-500 font-mono"
+            className="w-full ui-input p-3.5 font-mono"
           />
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
@@ -161,7 +161,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
                 type="text"
                 value={selectedRole}
                 onChange={(e) => setSelectedRole(e.target.value)}
-                className="bg-[#0A0C10] border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-slate-200 focus:outline-none focus:border-blue-500"
+                className="ui-input px-2.5 py-1 text-xs"
               />
             </div>
 
@@ -169,7 +169,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
               id="improve-bullet-btn"
               onClick={() => handleEnhance(inputText)}
               disabled={isEnhancing || !inputText.trim()}
-              className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium text-xs sm:text-sm shadow-md shadow-blue-600/20 transition-all"
+              className="ui-btn-primary px-5 py-2.5 disabled:opacity-50 text-xs sm:text-sm"
             >
               {isEnhancing ? (
                 <RefreshCw className="w-4 h-4 animate-spin" />
@@ -184,14 +184,14 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
 
       {/* Before vs After Comparison Card */}
       {result && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6 animate-fade-in">
+        <div className="ui-card p-6 sm:p-8 space-y-6 animate-fade-in">
           
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h3 className="text-base font-bold text-white flex items-center gap-2 tracking-tight">
               <Zap className="w-4 h-4 text-blue-400" />
               <span>{isAr ? 'المقارنة: قبل وبعد التحسين' : 'Before & After Impact Comparison'}</span>
             </h3>
-            <span className="text-xs font-bold font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/20">
+            <span className="ui-badge-emerald font-mono">
               {isAr ? 'ATS + Impact Optimized' : 'ATS + Impact Optimized'}
             </span>
           </div>
@@ -199,36 +199,36 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Before Box */}
-            <div className="bg-[#0A0C10] border border-red-500/20 rounded-xl p-5 space-y-3">
+            <div className="ui-subcard border-red-500/20 p-5 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-red-400 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-red-500" />
                   {isAr ? 'قبل التحسين (صياغة ضعيفة / عامة)' : 'Before (Weak / Vague)'}
                 </span>
-                <span className="text-[10px] text-slate-500 font-mono">❌ {isAr ? 'تفتقر للأرقام والتقنيات' : 'No metrics'}</span>
+                <span className="text-xs text-slate-400 font-mono">❌ {isAr ? 'تفتقر للأرقام والتقنيات' : 'No metrics'}</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 bg-[#0F1117] p-3.5 rounded-lg border border-slate-800 italic font-mono">
+              <p className="text-xs sm:text-sm text-slate-300 ui-card p-3.5 italic font-mono">
                 "{result.before}"
               </p>
             </div>
 
             {/* After Box */}
-            <div className="bg-[#0A0C10] border border-blue-500/30 rounded-xl p-5 space-y-3">
+            <div className="ui-subcard border-blue-500/30 p-5 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                   {isAr ? 'النسخة المحسنة بالذكاء الاصطناعي (AI Improved)' : 'AI Improved Version'}
                 </span>
-                <span className="text-[10px] text-emerald-400 font-mono">✓ {isAr ? 'أرقام + تقنيات + دور' : 'High Impact'}</span>
+                <span className="text-xs text-emerald-400 font-mono">✓ {isAr ? 'أرقام + تقنيات + دور' : 'High Impact'}</span>
               </div>
               
-              <p className="text-xs sm:text-sm text-white bg-[#0F1117] p-3.5 rounded-lg border border-blue-500/20 leading-relaxed font-semibold">
+              <p className="text-xs sm:text-sm text-white ui-card p-3.5 border-blue-500/20 leading-relaxed font-semibold">
                 "{result.improved}"
               </p>
 
               {result.improvedArabic && isAr && (
                 <div className="pt-2 text-xs text-blue-300 bg-blue-950/20 p-2.5 rounded-lg border border-blue-900/30">
-                  <span className="text-[10px] text-slate-400 block mb-0.5">{isAr ? 'الترجمة الاحترافية بالعربية:' : 'Arabic:'}</span>
+                  <span className="text-xs text-slate-400 block mb-0.5">{isAr ? 'الترجمة الاحترافية بالعربية:' : 'Arabic:'}</span>
                   "{result.improvedArabic}"
                 </div>
               )}
@@ -237,7 +237,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
           </div>
 
           {/* Breakdown of What Was Added */}
-          <div className="bg-[#0A0C10] p-4 rounded-xl border border-slate-800 space-y-2 text-xs">
+          <div className="ui-subcard p-4 space-y-2 text-xs">
             <span className="font-bold text-slate-300 block mb-1">
               {isAr ? 'ما الذي أضافه الذكاء الاصطناعي لرفع قوة الجملة؟' : 'Key Enhancements Applied:'}
             </span>
@@ -245,7 +245,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
               {result.improvementsMade?.map((imp, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="text-[11px]">{imp}</span>
+                  <span className="text-xs">{imp}</span>
                 </div>
               ))}
             </div>
@@ -255,7 +255,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
           <div className="flex flex-wrap items-center justify-end gap-3 pt-2">
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white text-xs font-medium transition-colors"
+              className="ui-btn-secondary text-xs"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
               <span>{copied ? (isAr ? 'تم النسخ!' : 'Copied!') : (isAr ? 'نسخ النص' : 'Copy')}</span>
@@ -263,7 +263,7 @@ export const AIImprovementSection: React.FC<AIImprovementSectionProps> = ({
 
             <button
               onClick={handleApply}
-              className="flex items-center gap-1.5 px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium shadow-md shadow-blue-600/20 transition-all"
+              className="ui-btn-primary text-xs"
             >
               {applied ? <Check className="w-4 h-4 text-white" /> : <Sparkles className="w-4 h-4" />}
               <span>{applied ? (isAr ? 'تم التطبيق في سيرتك!' : 'Applied to CV!') : (isAr ? 'تطبيق هذا التحسين في سيرتي' : 'Apply to My CV')}</span>

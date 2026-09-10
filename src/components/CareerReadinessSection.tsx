@@ -63,10 +63,10 @@ export const CareerReadinessSection: React.FC<CareerReadinessSectionProps> = ({
     <div className="space-y-6">
       
       {/* Header Overview Card */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+      <div className="ui-card p-6 sm:p-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold mb-2">
+            <div className="ui-badge-emerald mb-2">
               <Award className="w-3.5 h-3.5" />
               <span>{isAr ? 'مؤشر الجاهزية لسوق العمل' : 'Market Readiness Index'}</span>
             </div>
@@ -80,7 +80,7 @@ export const CareerReadinessSection: React.FC<CareerReadinessSectionProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-4 bg-[#0A0C10] p-4 rounded-xl border border-slate-800 shrink-0">
+          <div className="flex items-center gap-4 ui-subcard p-4 shrink-0">
             <div className="text-center">
               <span className="text-xs text-slate-400 block font-medium">
                 {isAr ? 'الجاهزية الكلية' : 'Readiness Index'}
@@ -123,7 +123,7 @@ export const CareerReadinessSection: React.FC<CareerReadinessSectionProps> = ({
               <CheckCircle2 className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[11px] font-bold text-emerald-400 uppercase block">
+              <span className="text-xs font-bold text-emerald-400 uppercase block">
                 {isAr ? 'أقوى مجالاتك (Your Strongest Area)' : 'Strongest Competency'}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -140,7 +140,7 @@ export const CareerReadinessSection: React.FC<CareerReadinessSectionProps> = ({
               <ShieldAlert className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[11px] font-bold text-orange-400 uppercase block">
+              <span className="text-xs font-bold text-orange-400 uppercase block">
                 {isAr ? 'أضعف مجالاتك للتحسين (Your Weakest Area)' : 'Area Needing Development'}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -156,7 +156,7 @@ export const CareerReadinessSection: React.FC<CareerReadinessSectionProps> = ({
       </div>
 
       {/* Job Recommendation Section */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-4">
+      <div className="ui-card p-6 sm:p-8 space-y-4">
         <div>
           <div className="flex items-center gap-2">
             <Target className="w-5 h-5 text-blue-400" />
@@ -175,12 +175,12 @@ export const CareerReadinessSection: React.FC<CareerReadinessSectionProps> = ({
           {jobRecommendations.map((job, idx) => (
             <div
               key={idx}
-              className="bg-[#0A0C10] border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all"
+              className="ui-subcard-hover p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
             >
               <div className="space-y-1">
                 <div className="flex items-center gap-2.5">
                   <h4 className="text-sm sm:text-base font-bold text-white">{job.title}</h4>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20">
+                  <span className="ui-badge-blue">
                     {job.tag}
                   </span>
                 </div>
@@ -192,12 +192,12 @@ export const CareerReadinessSection: React.FC<CareerReadinessSectionProps> = ({
                   <span className="text-xl font-bold font-mono text-blue-400">
                     {job.match}%
                   </span>
-                  <span className="text-[10px] text-slate-500 block">{isAr ? 'مطابقة' : 'Match'}</span>
+                  <span className="text-xs text-slate-400 block">{isAr ? 'مطابقة' : 'Match'}</span>
                 </div>
 
                 <button
                   onClick={() => onSelectRecommendedJob(job.title)}
-                  className="flex items-center gap-1 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium transition-colors"
+                  className="ui-btn-primary px-3.5 py-1.5 text-xs"
                 >
                   <span>{isAr ? 'فحص الوظيفة' : 'Analyze'}</span>
                   <ArrowIcon className="w-3.5 h-3.5" />
