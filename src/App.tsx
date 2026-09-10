@@ -293,7 +293,7 @@ export default function App() {
           <div className="space-y-8 animate-fade-in">
             
             {/* Quick Action Navigation Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-[#0F1117] p-3 rounded-2xl border border-slate-800">
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-[#0F1117] p-3.5 rounded-2xl border border-slate-800 shadow-lg shadow-black/30">
               <div className="flex items-center gap-2 text-xs">
                 <span className="text-slate-400">{isAr ? 'الملف الحالي:' : 'Active Profile:'}</span>
                 <span className="font-medium text-white bg-[#0A0C10] px-2.5 py-1 rounded-lg border border-slate-800">
@@ -332,7 +332,7 @@ export default function App() {
                 <button
                   id="dash-new-cv-btn"
                   onClick={() => setActiveTab('upload')}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-300 text-xs font-medium border border-slate-700 transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium border border-slate-700 hover:border-slate-600 transition-colors"
                 >
                   <Upload className="w-3.5 h-3.5" />
                   <span>{isAr ? 'رفع سيرة جديدة' : 'Upload New'}</span>

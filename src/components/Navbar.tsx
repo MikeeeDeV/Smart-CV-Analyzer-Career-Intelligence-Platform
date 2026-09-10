@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-150 whitespace-nowrap ${
                     isActive
                       ? 'bg-blue-600/15 text-blue-400 border border-blue-500/30 shadow-sm'
-                      : 'text-slate-400 hover:text-white hover:bg-slate-850'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800/70'
                   }`}
                 >
                   <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-blue-400' : 'text-slate-400'}`} />
@@ -161,8 +161,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }}
                   className={`flex items-center gap-2 p-2.5 rounded-xl text-xs font-semibold ${
                     isActive
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-slate-900 text-slate-300 hover:bg-slate-850'
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                      : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   <Icon className="w-4 h-4 shrink-0" />

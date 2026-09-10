@@ -78,7 +78,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Personal Info Header Card */}
       {(activeSection === 'all' || activeSection === 'experience') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3">
+        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3 shadow-lg shadow-black/30">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div>
               <h4 className="text-lg font-bold text-white tracking-tight">{cvData.personalInfo.name}</h4>
@@ -91,7 +91,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
             </div>
           </div>
           {cvData.personalInfo.summary && (
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-[#0A0C10] p-3 rounded-lg border border-slate-800">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-[#0A0C10] p-3.5 rounded-xl border border-slate-800">
               "{cvData.personalInfo.summary}"
             </p>
           )}
@@ -100,7 +100,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Skills Section */}
       {(activeSection === 'all' || activeSection === 'skills') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/30">
           <div className="flex items-center justify-between">
             <h4 className="text-sm font-bold text-white flex items-center gap-2">
               <Code2 className="w-4 h-4 text-blue-400" />
@@ -242,7 +242,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Experience Section */}
       {(activeSection === 'all' || activeSection === 'experience') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/30">
           <h4 className="text-sm font-bold text-white flex items-center gap-2">
             <Briefcase className="w-4 h-4 text-blue-400" />
             <span>{isAr ? 'الخبرات المهنية' : 'Work Experience'}</span>
@@ -266,7 +266,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
                   {exp.bullets.map((bullet, bIdx) => (
                     <div
                       key={bIdx}
-                      className="group flex items-start justify-between gap-2 p-2 rounded-lg hover:bg-slate-800/30 transition-colors text-xs text-slate-300"
+                      className="group flex items-start justify-between gap-2 p-2 rounded-lg hover:bg-slate-800/30 transition-colors text-xs text-slate-300 leading-relaxed"
                     >
                       <div className="flex items-start gap-2">
                         <span className="text-blue-400 font-bold">•</span>
@@ -294,7 +294,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
 
       {/* Projects Section */}
       {(activeSection === 'all' || activeSection === 'projects') && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/30">
           <h4 className="text-sm font-bold text-white flex items-center gap-2">
             <FolderGit2 className="w-4 h-4 text-emerald-400" />
             <span>{isAr ? 'المشاريع التطبيقية' : 'Featured Projects'}</span>
@@ -352,7 +352,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           
           {/* Education */}
-          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3">
+          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3 shadow-lg shadow-black/30">
             <h4 className="text-sm font-bold text-white flex items-center gap-2">
               <GraduationCap className="w-4 h-4 text-purple-400" />
               <span>{isAr ? 'التعليم الأكاديمي' : 'Education'}</span>
@@ -370,7 +370,7 @@ export const ParsedCVViewer: React.FC<ParsedCVViewerProps> = ({
           </div>
 
           {/* Certifications & Languages */}
-          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3">
+          <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 space-y-3 shadow-lg shadow-black/30">
             <h4 className="text-sm font-bold text-white flex items-center gap-2">
               <Award className="w-4 h-4 text-amber-400" />
               <span>{isAr ? 'الشهادات واللغات' : 'Certifications & Languages'}</span>

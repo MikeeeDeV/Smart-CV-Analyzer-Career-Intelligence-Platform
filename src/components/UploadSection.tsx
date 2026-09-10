@@ -228,7 +228,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                   {isAr ? 'صيغ الملفات المقبولة: PDF, DOCX, TXT (الحجم الأقصى 10MB)' : 'Accepted formats: PDF, DOCX, TXT (Max 10MB)'}
                 </p>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-200 text-xs font-medium border border-slate-700 transition-colors">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium border border-slate-700 hover:border-slate-600 transition-colors">
                   <FileText className="w-4 h-4 text-blue-400" />
                   <span>{isAr ? 'تصفح جهازك' : 'Choose File'}</span>
                 </div>
@@ -294,7 +294,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                   <button
                     id="sample-cv-omar-btn"
                     onClick={() => onLoadSample('omar')}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-300 text-xs font-medium transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white text-xs font-medium transition-colors"
                   >
                     <span>{isAr ? 'عمر خالد (Full Stack)' : 'Omar (Full Stack)'}</span>
                   </button>

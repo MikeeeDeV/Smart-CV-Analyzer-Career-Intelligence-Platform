@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-canvas: #0A0C10;
+  --color-surface: #0F1117;
+  --color-surface-subtle: #141824;
+  --color-surface-inset: #07080B;
+  
+  /* Fallback definitions for non-standard utility steps */
+  --color-slate-750: #253347;
+  --color-slate-850: #131B2A;
+}
+
 @layer base {
   :root {
     font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
@@ -9,10 +23,33 @@
     color: #E2E8F0;
     margin: 0;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Arabic typography spacing normalization */
+  [dir="rtl"] p,
+  [dir="rtl"] span,
+  [dir="rtl"] li {
+    letter-spacing: normal;
   }
 }
 
-/* Sleek scrollbar styling */
+/* System Card & Surface Elevation Helpers */
+@utility ui-card {
+  background-color: #0F1117;
+  border: 1px solid #1E293B;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+@utility ui-subcard {
+  background-color: #0A0C10;
+  border: 1px solid #1E293B;
+  border-radius: 0.75rem;
+}
+
+/* Sleek High-Contrast Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -28,6 +65,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B82F6;
+  background: #2563EB;
 }
-

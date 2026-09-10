@@ -157,7 +157,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
             <button
               id="explain-score-btn"
               onClick={() => setShowExplainModal(true)}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 font-medium text-xs sm:text-sm shadow-sm transition-all group"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white font-medium text-xs sm:text-sm shadow-sm transition-all group"
             >
               <HelpCircle className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
               <span>{isAr ? `لماذا حصلت على ${score.overall}%؟ (تحليل الأسباب)` : `Why ${score.overall}%? (Explain Score)`}</span>
@@ -185,7 +185,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
           return (
             <div
               key={card.id}
-              className="bg-[#0F1117] border border-slate-800 hover:border-slate-750 rounded-2xl p-5 transition-all space-y-3"
+              className="bg-[#0F1117] border border-slate-800 hover:border-slate-700 rounded-xl p-5 transition-all space-y-3 shadow-md shadow-black/30 hover:shadow-xl hover:shadow-black/50"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
@@ -209,7 +209,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
                 />
               </div>
 
-              <p className="text-[11px] text-slate-400 leading-normal">
+              <p className="text-xs text-slate-400 leading-relaxed">
                 {card.desc}
               </p>
             </div>
@@ -219,7 +219,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
 
       {/* ATS Intelligence Card */}
       {score.atsDetails && (
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4 text-xs shadow-lg shadow-black/30">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <ShieldCheck className="w-5 h-5 shrink-0" />
@@ -228,7 +228,7 @@ export const CVScoreOverview: React.FC<CVScoreOverviewProps> = ({
               <h4 className="font-bold text-white text-sm">
                 {isAr ? 'حالة التوافق مع أنظمة الفلترة الآلية (ATS System)' : 'ATS Compatibility Breakdown'}
               </h4>
-              <p className="text-slate-400 text-[11px] mt-0.5">
+              <p className="text-slate-400 text-xs mt-0.5 leading-relaxed">
                 {isAr
                   ? 'تم اجتياز معايير العناوين القياسية، وضوح الترتيب الزمني، وكثافة الكلمات المفتاحية.'
                   : 'Passed standard section header scans, reverse chronological flow & keyword parsing.'}

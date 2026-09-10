@@ -68,7 +68,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
     <div className="space-y-6">
       
       {/* Job Selection Card */}
-      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl space-y-5">
+      <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl shadow-black/40 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2">
@@ -224,7 +224,7 @@ export const JobMatchSection: React.FC<JobMatchSectionProps> = ({
                 <button
                   id="match-to-simulator-btn"
                   onClick={onNavigateToSimulator}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs sm:text-sm font-medium shadow-sm transition-all shrink-0"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white text-xs sm:text-sm font-medium shadow-sm transition-all shrink-0"
                 >
                   <SlidersHorizontal className="w-4 h-4 text-blue-400" />
                   <span>{isAr ? 'تجربة محاكي إضافة المهارات (Simulator)' : 'Try Fit Simulator'}</span>

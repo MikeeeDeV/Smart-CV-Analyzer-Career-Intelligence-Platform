@@ -135,7 +135,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Left 2 Cols: Missing Skills Toggles */}
-        <div className="lg:col-span-2 bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-4">
+        <div className="lg:col-span-2 bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-4 shadow-lg shadow-black/30">
           <div className="flex items-center justify-between pb-3 border-b border-slate-800">
             <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
               <SlidersHorizontal className="w-4 h-4 text-blue-400" />
@@ -172,13 +172,13 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
                     <h4 className="text-xs sm:text-sm font-bold text-white">
                       {skill.name}
                     </h4>
-                    <p className="text-[11px] text-slate-400">
+                    <p className="text-xs text-slate-400 leading-relaxed">
                       {skill.desc}
                     </p>
                   </div>
                 </div>
 
-                <span className="text-xs font-bold font-mono px-2.5 py-0.5 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 shrink-0">
+                <span className="text-[11px] font-semibold font-mono px-2 py-0.5 rounded-md bg-blue-600/10 text-blue-400 border border-blue-500/20 shrink-0">
                   +{skill.weight}%
                 </span>
               </div>
@@ -254,7 +254,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
         </div>
 
         {/* Right Col: Simulation Summary & Apply */}
-        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-5 flex flex-col justify-between">
+        <div className="bg-[#0F1117] border border-slate-800 rounded-2xl p-6 space-y-5 flex flex-col justify-between shadow-lg shadow-black/30">
           <div className="space-y-4">
             <h3 className="text-base font-bold text-white tracking-tight">
               {isAr ? 'ملخص المحاكاة والنتيجة' : 'Simulation Summary'}
@@ -275,7 +275,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#0A0C10] border border-slate-800 text-[11px] text-slate-400 flex items-start gap-2">
+            <div className="p-3.5 rounded-xl bg-[#0A0C10] border border-slate-800 text-xs leading-relaxed text-slate-400 flex items-start gap-2.5">
               <AlertCircle className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
               <span>
                 {isAr
@@ -288,7 +288,7 @@ export const JobFitSimulator: React.FC<JobFitSimulatorProps> = ({
           <button
             onClick={handleApply}
             disabled={simulatedSkills.filter((s) => s.checked).length === 0}
-            className="w-full py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium text-xs sm:text-sm shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium text-xs sm:text-sm shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/35 transition-all flex items-center justify-center gap-2"
           >
             <Sparkles className="w-4 h-4" />
             <span>{isAr ? 'تطبيق هذه المهارات في سيرتي الحالية' : 'Apply Selected Skills to My CV'}</span>
